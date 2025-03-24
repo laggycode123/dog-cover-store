@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PupShield - Dog Car Covers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #ff9f43;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+    }
+    .slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 12s infinite;
+    }
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-shadow: 2px 2px #000;
+      text-align: center;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .product h2 {
+      margin-top: 20px;
+      color: #222;
+    }
+    .product p {
+      font-size: 18px;
+    }
+    .buy-button {
+      background-color: #27ae60;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .reviews {
+      background-color: #fff7e6;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .review {
+      margin-bottom: 20px;
+    }
+    .checkout-page, .payment-page {
+      display: none;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+  <script>
+    function showCheckout() {
+      document.querySelector('.main-page').style.display = 'none';
+      document.querySelector('.checkout-page').style.display = 'block';
+    }
+    function showPayment() {
+      document.querySelector('.checkout-page').style.display = 'none';
+      document.querySelector('.payment-page').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>PupShield</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#product">Product</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+  </header>
+
+  <div class="main-page">
+    <div class="hero">
+      <div class="slider">
+        <img src="slider1.jpg" alt="Dog in car with cover">
+        <img src="slider2.jpg" alt="Happy dog using cover">
+        <img src="slider3.jpg" alt="Car protected from mud">
+      </div>
+      <div class="hero-text">
+        <h1>Protect Your Car. Pamper Your Pup.</h1>
+        <p>Stylish, durable dog covers for your car adventures.</p>
+      </div>
+    </div>
+
+    <section class="section product" id="product">
+      <img src="dog-cover-product.jpg" alt="Dog cover in use">
+      <h2>PupShield Premium Car Seat Cover</h2>
+      <p>Waterproof. Scratch-resistant. Comfy for pups of all sizes.</p>
+      <button class="buy-button" onclick="showCheckout()">Buy Now - $49.99</button>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <h2>What Our Customers Say</h2>
+      <div class="review">
+        <strong>"Absolutely love it! My dog is comfy and my seats are spotless."</strong> – Sarah K.
+      </div>
+      <div class="review">
+        <strong>"Great quality and super easy to install."</strong> – Mike L.
+      </div>
+      <div class="review">
+        <strong>"Best car cover I've ever bought. 10/10!"</strong> – Jess T.
+      </div>
+    </section>
+  </div>
+
+  <div class="checkout-page section">
+    <h2>Checkout</h2>
+    <p><strong>Product:</strong> PupShield Premium Car Seat Cover</p>
+    <p><strong>Price:</strong> $49.99</p>
+    <form onsubmit="event.preventDefault(); showPayment();">
+      <label>Name:<br><input type="text" required></label><br><br>
+      <label>Shipping Address:<br><textarea required></textarea></label><br><br>
+      <label>Email:<br><input type="email" required></label><br><br>
+      <button type="submit" class="buy-button">Continue to Payment</button>
+    </form>
+  </div>
+
+  <div class="payment-page section">
+    <h2>Payment</h2>
+    <p>Total: $49.99</p>
+    <form onsubmit="event.preventDefault(); alert('Thank you for your purchase!');">
+      <label>Card Number:<br><input type="text" required></label><br><br>
+      <label>Expiration Date:<br><input type="text" placeholder="MM/YY" required></label><br><br>
+      <label>CVV:<br><input type="text" required></label><br><br>
+      <button type="submit" class="buy-button">Complete Purchase</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 PupShield. All rights reserved.
+  </footer>
+</body>
+</html>
